@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "dgSpecHash": "JizUoGvVBTF6M3Mpbp+IbQm/A2ijJs1e7P0Hc9Kzke7Ac/603XUlDSkYf21HlUFiq6toF5M/ysoKP9ZI7dc1aw==",
+  "success": true,
+  "projectFilePath": "F:\\Desktop\\dotNET\\C#\\8.24\\csharp-http-simplified\\csharp-http-simplified\\csharp-http-simplified.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\ginta\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\5.0.2\\microsoft.extensions.dependencyinjection.5.0.2.nupkg.sha512",
+    "C:\\Users\\ginta\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\5.0.0\\microsoft.extensions.dependencyinjection.abstractions.5.0.0.nupkg.sha512",
+    "C:\\Users\\ginta\\.nuget\\packages\\microsoft.extensions.http\\5.0.0\\microsoft.extensions.http.5.0.0.nupkg.sha512",
+    "C:\\Users\\ginta\\.nuget\\packages\\microsoft.extensions.logging\\5.0.0\\microsoft.extensions.logging.5.0.0.nupkg.sha512",
+    "C:\\Users\\ginta\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\5.0.0\\microsoft.extensions.logging.abstractions.5.0.0.nupkg.sha512",
+    "C:\\Users\\ginta\\.nuget\\packages\\microsoft.extensions.options\\5.0.0\\microsoft.extensions.options.5.0.0.nupkg.sha512",
+    "C:\\Users\\ginta\\.nuget\\packages\\microsoft.extensions.primitives\\5.0.0\\microsoft.extensions.primitives.5.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
