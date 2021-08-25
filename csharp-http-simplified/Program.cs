@@ -12,47 +12,63 @@ namespace csharp_http_simplified
             var startup = new Startup();
             var serviceProvider = startup.ConfigureServices();
 
-            var jsonPlaceholderClient = serviceProvider.GetService<IJsonPlaceholderClient>();
+            var favQuotesClient = serviceProvider.GetService<IFavQuotesClient>();
 
-            Console.WriteLine("----------Get all users----------");
-            var users = await jsonPlaceholderClient.GetUsers();
+            Console.WriteLine("----------Get all quotes----------");
+            var quotes = await favQuotesClient.ShowAllQuotes();
 
-            foreach (var user in users)
+            //Console.WriteLine(quotes);
+
+            foreach (var quote in quotes.Quotes)
             {
-                Console.WriteLine(user);
+                Console.WriteLine(quote);
             }
 
-            Console.WriteLine("----------Get user by id----------");
-            Console.WriteLine("Select user ID to get user info:");
-            var selectedUserId = Convert.ToInt32(Console.ReadLine());
+            // -------------------Placeholder APP------------------------------
 
-            var selectedUser = await jsonPlaceholderClient.GetUser(selectedUserId);
+            /*            var jsonPlaceholderClient = serviceProvider.GetService<IJsonPlaceholderClient>();
 
-            Console.WriteLine(selectedUser);
+                        Console.WriteLine("----------Get all users----------");
+                        var users = await jsonPlaceholderClient.GetUsers();
 
-            Console.WriteLine("----------Get todos by user id----------");
-            Console.WriteLine("Select user ID to get her/his todos:");
-            var selectedUserIdForTodos = Convert.ToInt32(Console.ReadLine());
+                        foreach (var user in users)
+                        {
+                            Console.WriteLine(user);
+                        }
 
-            var todos = await jsonPlaceholderClient.GetTodoItems(selectedUserIdForTodos);
+                        Console.WriteLine("----------Get user by id----------");
+                        Console.WriteLine("Select user ID to get user info:");
+                        var selectedUserId = Convert.ToInt32(Console.ReadLine());
 
-            foreach (var todo in todos)
-            {
-                Console.WriteLine(todo);
-            }
+                        var selectedUser = await jsonPlaceholderClient.GetUser(selectedUserId);
 
-            Console.WriteLine("----------Get todos by user id and status----------");
-            Console.WriteLine("Select user ID to get her/his todos:");
-            var selectedUserIdForTodosWithStatus = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("Select finished tasks?:");
-            var selectedCompletion = Convert.ToBoolean(Console.ReadLine().ToLower());
+                        Console.WriteLine(selectedUser);
 
-            var todosByStatus = await jsonPlaceholderClient.GetTodosByStatus(selectedUserIdForTodosWithStatus, selectedCompletion);
+                        Console.WriteLine("----------Get todos by user id----------");
+                        Console.WriteLine("Select user ID to get her/his todos:");
+                        var selectedUserIdForTodos = Convert.ToInt32(Console.ReadLine());
 
-            foreach (var todo in todosByStatus)
-            {
-                Console.WriteLine(todo);
-            }
+                        var todos = await jsonPlaceholderClient.GetTodoItems(selectedUserIdForTodos);
+
+                        foreach (var todo in todos)
+                        {
+                            Console.WriteLine(todo);
+                        }
+
+                        Console.WriteLine("----------Get todos by user id and status----------");
+                        Console.WriteLine("Select user ID to get her/his todos:");
+                        var selectedUserIdForTodosWithStatus = Convert.ToInt32(Console.ReadLine());
+                        Console.WriteLine("Select finished tasks?:");
+                        var selectedCompletion = Convert.ToBoolean(Console.ReadLine().ToLower());
+
+                        var todosByStatus = await jsonPlaceholderClient.GetTodosByStatus(selectedUserIdForTodosWithStatus, selectedCompletion);
+
+                        foreach (var todo in todosByStatus)
+                        {
+                            Console.WriteLine(todo);
+                        }*/
+
+            // -------------------Github APP------------------------------
 
             /*            var githubClient = serviceProvider.GetService<IGithubClient>();
 

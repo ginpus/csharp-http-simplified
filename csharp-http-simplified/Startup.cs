@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using System.Net.Http.Headers;
 
 namespace csharp_http_simplified
 {
@@ -14,14 +15,21 @@ namespace csharp_http_simplified
         {
             var services = new ServiceCollection();
 
-            services.AddHttpClient<IGithubClient, GithubClient>(httpClient =>
-            {
-                httpClient.BaseAddress = new Uri("https://api.github.com");
-            });
+            /*            services.AddHttpClient<IGithubClient, GithubClient>(httpClient =>
+                        {
+                            httpClient.BaseAddress = new Uri("https://api.github.com");
+                        });
 
-            services.AddHttpClient<IJsonPlaceholderClient, JsonPlaceholderClient>(httpClient =>
+                        services.AddHttpClient<IJsonPlaceholderClient, JsonPlaceholderClient>(httpClient =>
+                        {
+                            httpClient.BaseAddress = new Uri("https://jsonplaceholder.typicode.com");
+                        });*/
+
+            services.AddHttpClient<IFavQuotesClient, FavQuotesClient>(httpClient =>
             {
-                httpClient.BaseAddress = new Uri("https://jsonplaceholder.typicode.com");
+                httpClient.BaseAddress = new Uri("https://favqs.com");
+                httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", "6ec3ac06e0c549325cffffbb6ff79c85");
+                //httpClient.DefaultRequestHeaders.Add("Authorization", "Token token =6ec3ac06e0c549325cffffbb6ff79c85");
             });
 
             return services.BuildServiceProvider();
