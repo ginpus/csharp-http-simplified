@@ -39,8 +39,12 @@ namespace csharp_http_simplified
             {
                 User = new PostUserContent
                 {
-                    Login = login,
-                    Password = password
+                    Login = "vakejer210",
+                    Password = "apiapi"
+                    /*
+
+                                        Login = login,
+                                        Password = password*/
                 }
             };
             const string url = "/api/session";
@@ -67,18 +71,14 @@ namespace csharp_http_simplified
 
             request.RequestUri = new Uri(_httpClient.BaseAddress, url);
             request.Method = HttpMethod.Post;
-            request.Content = new StringContent(quoteJson, Encoding.UTF8, url);
+            request.Content = new StringContent(quoteJson, Encoding.UTF8, "application/json");
+
             request.Headers.Add("User-Token", userToken);
 
             var response = await _httpClient.SendAsync(request);
 
-            //var postResponse = response.Content.ReadFromJsonAsync<PostResponse>();
-
-            //Console.WriteLine(postResponse);
-
             Console.WriteLine(await response.Content.ReadAsStringAsync());
 
-            //var response = await _httpClient.PostAsJsonAsync(url, quote);
             return response;
         }
     }
