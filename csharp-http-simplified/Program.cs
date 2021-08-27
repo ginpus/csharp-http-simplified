@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Net.Http;
 using System.Threading.Tasks;
+using csharp_http_simplified.Models.FavQuotes.WriteModels;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace csharp_http_simplified
@@ -14,7 +15,7 @@ namespace csharp_http_simplified
 
             var favQuotesClient = serviceProvider.GetService<IFavQuotesClient>();
 
-            Console.WriteLine("----------Get all quotes----------");
+/*            Console.WriteLine("----------Get all quotes----------");
             var quotes = await favQuotesClient.ShowAllQuotes();
 
             //Console.WriteLine(quotes);
@@ -30,12 +31,30 @@ namespace csharp_http_simplified
 
             var quoteById = await favQuotesClient.ShowQuoteById(selectedQuoteId);
 
-            Console.WriteLine(quoteById);
+            Console.WriteLine(quoteById);*/
+
+            Console.WriteLine("----------Create user session----------");
+            Console.WriteLine("User:");
+            var login = Console.ReadLine();
+            Console.WriteLine("Password:");
+            var password = Console.ReadLine();
+
+            var user = await favQuotesClient.CreateUserSession(login, password);
+
+            var userToken = user.UserToken;
+
+            Console.WriteLine(userToken);
 
             Console.WriteLine("----------Post a quote----------");
 
-            var response = await favQuotesClient.PostQuote(post);
+            Console.WriteLine("Author:");
+            var author = Console.ReadLine();
+            Console.WriteLine("Quote body:");
+            var body = Console.ReadLine();
+
+            var response = await favQuotesClient.PostQuote(author, body, user.UserToken);
             Console.WriteLine(response.EnsureSuccessStatusCode());
+            Console.WriteLine(await response.Content.ReadAsStringAsync());
 
             // -------------------Placeholder APP------------------------------
 

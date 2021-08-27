@@ -25,11 +25,16 @@ namespace csharp_http_simplified
                             httpClient.BaseAddress = new Uri("https://jsonplaceholder.typicode.com");
                         });*/
 
+            /*            Console.WriteLine("----------Create user session----------");
+                        Console.WriteLine("User:");
+                        var user = Console.ReadLine();
+                        Console.WriteLine("Password:");
+                        var password = Console.ReadLine();*/
+
             services.AddHttpClient<IFavQuotesClient, FavQuotesClient>(httpClient =>
             {
                 httpClient.BaseAddress = new Uri("https://favqs.com");
-                httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", "6ec3ac06e0c549325cffffbb6ff79c85");
-                //httpClient.DefaultRequestHeaders.Add("Authorization", "Token token =6ec3ac06e0c549325cffffbb6ff79c85");
+                httpClient.DefaultRequestHeaders.Add("Authorization", "Token token=6ec3ac06e0c549325cffffbb6ff79c85");
             });
 
             return services.BuildServiceProvider();
