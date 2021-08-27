@@ -24,6 +24,19 @@ namespace csharp_http_simplified
                 Console.WriteLine(quote);
             }
 
+            Console.WriteLine("----------Get single quote----------");
+            Console.WriteLine("Select quote ID:");
+            var selectedQuoteId = Convert.ToInt32(Console.ReadLine());
+
+            var quoteById = await favQuotesClient.ShowQuoteById(selectedQuoteId);
+
+            Console.WriteLine(quoteById);
+
+            Console.WriteLine("----------Post a quote----------");
+
+            var response = await favQuotesClient.PostQuote(post);
+            Console.WriteLine(response.EnsureSuccessStatusCode());
+
             // -------------------Placeholder APP------------------------------
 
             /*            var jsonPlaceholderClient = serviceProvider.GetService<IJsonPlaceholderClient>();
