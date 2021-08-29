@@ -25,12 +25,6 @@ namespace csharp_http_simplified
                             httpClient.BaseAddress = new Uri("https://jsonplaceholder.typicode.com");
                         });*/
 
-            /*            Console.WriteLine("----------Create user session----------");
-                        Console.WriteLine("User:");
-                        var user = Console.ReadLine();
-                        Console.WriteLine("Password:");
-                        var password = Console.ReadLine();*/
-
             services.AddHttpClient<IFavQuotesClient, FavQuotesClient>(httpClient =>
             {
                 httpClient.BaseAddress = new Uri("https://favqs.com");

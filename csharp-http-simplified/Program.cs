@@ -47,18 +47,30 @@ namespace csharp_http_simplified
 
             Console.WriteLine(userToken);
 
-            Console.WriteLine("----------Post a quote----------");
+            /*            Console.WriteLine("----------Post a quote----------");
 
-            Console.WriteLine("Author:");
-            var author = Console.ReadLine();
-            Console.WriteLine("Quote body:");
-            var body = Console.ReadLine();
+                        Console.WriteLine("Author:");
+                        var author = Console.ReadLine();
+                        Console.WriteLine("Quote body:");
+                        var body = Console.ReadLine();
 
-            var response = await favQuotesClient.PostQuote(author, body, user.UserToken);
+                        var response = await favQuotesClient.PostQuote(author, body, user.UserToken);
+                        //Console.WriteLine(response.EnsureSuccessStatusCode());
+                        var quoteResponse = response.Content.ReadFromJsonAsync<QuoteResponse>();
+
+                        Console.WriteLine(quoteResponse);
+                        //Console.WriteLine(await response.Content.ReadAsStringAsync());*/
+
+            Console.WriteLine("----------Fav a quote----------");
+
+            Console.WriteLine("Quote of ID to fav:");
+            var idFav = Convert.ToInt32(Console.ReadLine());
+
+            var responseFav = await favQuotesClient.FavQuote(idFav, user.UserToken);
             //Console.WriteLine(response.EnsureSuccessStatusCode());
-            var quoteResponse = response.Content.ReadFromJsonAsync<QuoteResponse>();
+            var quoteResponseFav = responseFav.Content.ReadFromJsonAsync<QuoteResponse>();
 
-            Console.WriteLine(quoteResponse);
+            Console.WriteLine(quoteResponseFav);
             //Console.WriteLine(await response.Content.ReadAsStringAsync());
 
             // -------------------Placeholder APP------------------------------

@@ -18,5 +18,7 @@ namespace csharp_http_simplified
         Task<PostUserResponse> CreateUserSession(string login, string password);
 
         Task<HttpResponseMessage> PostQuote(string author, string quote, string userToken);
+
+        Task<HttpResponseMessage> FavQuote(int id, string userToken);
     }
 }
